@@ -1,0 +1,9 @@
+body {
+  background: #b3b1b1;
+  padding-top: 1rem;
+}
+
+.task-container {
+  height: 600px;
+  overflow-y: scroll;
+}
