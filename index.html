@@ -65,17 +65,18 @@
                   v-model="task.timeSpent"
                   :disabled="task.completed"
                 />
-                <span>{{ task.task }}</span>
+                <span>{{ task.task }}</span><br>
                 <small>
                   <a 
                     href="javascript:void(0)"
                     class="text-info"
                     @click="completeTask(task)"
                   >
-                    <span v-if="!task.completed">Close</span>
-                    <span v-else>Re-Open</span>
+                    <span v-if="!task.completed">Lock</span>
+                    <span v-else>Unlock</span>
                   </a>
                 </small>
+                &nbsp;
                 <small>
                   <a
                     href="javascript:void(0)"

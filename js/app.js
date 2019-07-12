@@ -32,17 +32,19 @@ const app = new Vue({
     },
 
     saveTask() {
-      let taskToSave = {};
+      if (this.newTask != "") {
+        let taskToSave = {};
 
-      taskToSave.id = Date.now();
-      taskToSave.task = this.newTask;
-      taskToSave.completed = false;
-      taskToSave.timeSpent = 0;
+        taskToSave.id = Date.now();
+        taskToSave.task = this.newTask;
+        taskToSave.completed = false;
+        taskToSave.timeSpent = 0;
 
-      this.tasks.push(taskToSave);
+        this.tasks.push(taskToSave);
 
-      this.newTask = "";
-      this.$refs["task-input"].focus();
+        this.newTask = "";
+        this.$refs["task-input"].focus();
+      }
     },
 
     updateLocalStorage() {
