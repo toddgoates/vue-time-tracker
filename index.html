@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Vue Time Tracker</title>
+    <title>Goat Time Tracker</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css"
@@ -19,7 +19,7 @@
             <div class="card">
               <div class="card-body">
                 <h3>New Task</h3>
-                <div class="form-row">
+                <div class="form-row" v-if="!editMode">
                   <div class="col-auto">
                     <label class="sr-only" for="task">Task</label>
                     <input
@@ -36,12 +36,22 @@
                     <button class="btn btn-primary" @click="saveTask">
                       Save
                     </button>
-                    <!--
-                    <span>
-                      <button class="btn btn-primary" @click="updateTask">Update Task</button>
-                      <button class="btn btn-light" @click="cancelEdit">Cancel</button>
-                    </span>
-                    -->
+                  </div>
+                </div>
+
+                <div class="form-row" v-else>
+                  <div class="col-auto">
+                    <label class="sr-only" for="edit_task">Task</label>
+                    <input
+                      type="text"
+                      class="form-control mb-2"
+                      id="edit_task"
+                      v-model="taskToUpdate.task"
+                      @keyup.enter="disableEdit"
+                    />
+                  </div>
+                  <div class="col-auto">
+                    <button class="btn btn-primary" @click="disableEdit">Done</button>
                   </div>
                 </div>
               </div>
@@ -84,10 +94,10 @@
                   </a>
                 </small>
                 &nbsp;
-                <!-- <small>
+                <small>
                   <a href="javascript:void(0)" class="text-info" @click="enableEdit(task)">Edit</a>
                 </small>
-                &nbsp; -->
+                &nbsp;
                 <small>
                   <a
                     href="javascript:void(0)"

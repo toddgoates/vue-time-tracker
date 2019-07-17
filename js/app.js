@@ -54,18 +54,14 @@ const app = new Vue({
     },
 
     enableEdit(task) {
-      this.newTask = task.task;
       this.taskToUpdate = task;
       this.editMode = true;
     },
 
-    cancelEdit() {
-      this.newTask = "";
+    disableEdit() {
       this.taskToUpdate = null;
       this.editMode = false;
     },
-
-    updateTask() {},
 
     removeTask(task) {
       this.tasks.splice(this.tasks.indexOf(task), 1);
