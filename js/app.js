@@ -3,7 +3,9 @@ const app = new Vue({
 
   data: {
     tasks: [],
-    newTask: ""
+    newTask: "",
+    editMode: false,
+    taskToUpdate: null
   },
 
   computed: {
@@ -50,6 +52,20 @@ const app = new Vue({
     updateLocalStorage() {
       localStorage.setItem("myTasks", JSON.stringify(this.tasks));
     },
+
+    enableEdit(task) {
+      this.newTask = task.task;
+      this.taskToUpdate = task;
+      this.editMode = true;
+    },
+
+    cancelEdit() {
+      this.newTask = "";
+      this.taskToUpdate = null;
+      this.editMode = false;
+    },
+
+    updateTask() {},
 
     removeTask(task) {
       this.tasks.splice(this.tasks.indexOf(task), 1);
