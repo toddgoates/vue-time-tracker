@@ -33,13 +33,15 @@
                     />
                   </div>
                   <div class="col-auto">
-                    <button class="btn btn-primary" @click="saveTask" v-if="!editMode">
+                    <button class="btn btn-primary" @click="saveTask">
                       Save
                     </button>
-                    <span v-else>
+                    <!--
+                    <span>
                       <button class="btn btn-primary" @click="updateTask">Update Task</button>
                       <button class="btn btn-light" @click="cancelEdit">Cancel</button>
                     </span>
+                    -->
                   </div>
                 </div>
               </div>
@@ -82,10 +84,10 @@
                   </a>
                 </small>
                 &nbsp;
-                <small>
+                <!-- <small>
                   <a href="javascript:void(0)" class="text-info" @click="enableEdit(task)">Edit</a>
                 </small>
-                &nbsp;
+                &nbsp; -->
                 <small>
                   <a
                     href="javascript:void(0)"
