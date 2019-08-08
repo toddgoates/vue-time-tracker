@@ -19,40 +19,35 @@
             <div class="card">
               <div class="card-body">
                 <h3>New Task</h3>
-                <div class="form-row" v-if="!editMode">
-                  <div class="col-auto">
-                    <label class="sr-only" for="task">Task</label>
-                    <input
-                      type="text"
-                      class="form-control mb-2"
-                      id="task"
-                      ref="task-input"
-                      placeholder="My new task..."
-                      v-model="newTask"
-                      @keyup.enter="saveTask"
-                    />
-                  </div>
-                  <div class="col-auto">
-                    <button class="btn btn-primary" @click="saveTask">
-                      Save
-                    </button>
-                  </div>
+
+                <!-- New Task Form -->
+                <div v-if="!editMode">
+                  <label class="sr-only" for="task">Task</label>
+                  <textarea
+                    class="form-control mb-2"
+                    id="task"
+                    rows="4"
+                    ref="task-input"
+                    placeholder="My new task..."
+                    v-model="newTask"
+                    @keyup.enter="saveTask"
+                  ></textarea>
+                  <button class="btn btn-primary btn-block" @click="saveTask">
+                    Save
+                  </button>
                 </div>
 
-                <div class="form-row" v-else>
-                  <div class="col-auto">
-                    <label class="sr-only" for="edit_task">Task</label>
-                    <input
-                      type="text"
-                      class="form-control mb-2"
-                      id="edit_task"
-                      v-model="taskToUpdate.task"
-                      @keyup.enter="disableEdit"
-                    />
-                  </div>
-                  <div class="col-auto">
-                    <button class="btn btn-primary" @click="disableEdit">Done</button>
-                  </div>
+                <!-- Edit Task Form -->
+                <div v-else>
+                  <label class="sr-only" for="edit_task">Task</label>
+                  <textarea
+                    class="form-control mb-2"
+                    id="edit_task"
+                    rows="4"
+                    v-model="taskToUpdate.task"
+                    @keyup.enter="disableEdit"
+                  ></textarea>
+                  <button class="btn btn-primary btn-block" @click="disableEdit">Done</button>
                 </div>
               </div>
             </div>
