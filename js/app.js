@@ -69,6 +69,10 @@ const app = new Vue({
 
     completeTask(task) {
       task.completed = !task.completed;
+    },
+
+    resetTime(task) {
+      task.timeSpent = 0;
     }
   }
 });
