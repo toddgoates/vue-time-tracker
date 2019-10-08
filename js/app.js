@@ -73,6 +73,12 @@ const app = new Vue({
 
     resetTime(task) {
       task.timeSpent = 0;
+    },
+
+    resetAll() {
+      this.tasks.forEach(task => {
+        task.timeSpent = 0;
+      });
     }
   }
 });
