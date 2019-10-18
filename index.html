@@ -9,6 +9,10 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css"
     />
+    <link 
+      rel="stylesheet" 
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css "
+    />
     <link rel="stylesheet" href="css/main.css" />
   </head>
   <body>
@@ -18,7 +22,7 @@
           <section class="mb-4">
             <div class="card">
               <div class="card-body">
-                <h3>New Task</h3>
+                <h3><i class="fa fa-fw fa-plus-circle"></i> New Task</h3>
 
                 <!-- New Task Form -->
                 <div v-if="!editMode">
@@ -56,10 +60,14 @@
           <section>
             <div class="card">
               <div class="card-body">
-                <h3 class="float-left">Total Hours</h3>
+                <h3 class="float-left"><i class="fa fa-fw fa-clock-o"></i> Total Hours</h3>
                 <button class="btn btn-light btn-sm float-right" @click="resetAll">Reset</button>
                 <div class="clearfix"></div>
-                <strong :class="[totalHours < 8 ? 'text-danger' : 'text-success']">{{ totalHours }}</strong>
+                <p>
+                  <strong :class="[totalHours < 8 ? 'text-danger' : 'text-success']">
+                    {{ totalHours }}
+                  </strong>
+                </p>
               </div>
             </div>
         </aside>
@@ -67,8 +75,8 @@
         <main class="col-md-8 mb-4">
           <div class="card">
             <div class="card-body task-container">
-              <h3>My Tasks</h3>
-              <div class="mb-4" v-for="task in tasks" :key="task.id">
+              <h3><i class="fa fa-fw fa-list-ul"></i> My Tasks</h3>
+              <div class="mb-4 task" v-for="task in tasks" :key="task.id">
                 <input
                   type="number"
                   min="0"
@@ -86,17 +94,15 @@
                     class="text-muted"
                     @click="completeTask(task)"
                   >
-                    <span v-if="!task.completed">Lock</span>
-                    <span v-else>Unlock</span>
+                    <span v-if="!task.completed"><i class="fa fa-fw fa-lock"></i> Lock</span>
+                    <span v-else><i class="fa fa-fw fa-unlock"></i> Unlock</span>
                   </a>
                 </small>
                 &nbsp;
                 <small>
-                  <a href="javascript:void(0)" class="text-success" @click="resetTime(task)">Reset</a>
-                </small>
-                &nbsp;
-                <small>
-                  <a href="javascript:void(0)" class="text-info" @click="enableEdit(task)">Edit</a>
+                  <a href="javascript:void(0)" class="text-info" @click="enableEdit(task)">
+                    <i class="fa fa-fw fa-pencil"></i> Edit
+                  </a>
                 </small>
                 &nbsp;
                 <small>
@@ -105,7 +111,13 @@
                     class="text-danger"
                     @click="removeTask(task)"
                   >
-                    Remove
+                    <i class="fa fa-fw fa-trash"></i> Remove
+                  </a>
+                </small>
+                &nbsp;
+                <small>
+                  <a href="javascript:void(0)" class="text-success" @click="resetTime(task)">
+                    <i class="fa fa-fw fa-undo"></i> Reset
                   </a>
                 </small>
               </div>

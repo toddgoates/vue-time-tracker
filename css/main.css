@@ -2,3 +2,11 @@ body {
   background: #b3b1b1;
   padding-top: 1rem;
 }
+
+.task {
+  padding: 0.5em;
+}
+
+.task:hover {
+  background: #eaeaea;
+}
