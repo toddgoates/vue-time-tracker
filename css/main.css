@@ -3,6 +3,11 @@ body {
   padding-top: 1rem;
 }
 
+.total {
+  font-size: 40px;
+  margin-top: 15px;
+}
+
 .task {
   padding: 0.5em;
 }

@@ -57,14 +57,14 @@
             </div>
           </section>
 
-          <section>
+          <section class="mb-4">
             <div class="card">
               <div class="card-body">
                 <h3 class="float-left"><i class="fa fa-fw fa-clock-o"></i> Total Hours</h3>
                 <button class="btn btn-light btn-sm float-right" @click="resetAll">Reset</button>
                 <div class="clearfix"></div>
-                <p>
-                  <strong :class="[totalHours < 8 ? 'text-danger' : 'text-success']">
+                <p class="total" :class="[totalHours < 8 ? 'text-danger' : 'text-success']">
+                  <strong >
                     {{ totalHours }}
                   </strong>
                 </p>
